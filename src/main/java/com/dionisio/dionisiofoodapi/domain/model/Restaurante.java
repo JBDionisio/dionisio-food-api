@@ -1,4 +1,4 @@
-package com.dionisio.dionisiofoodapi.model;
+package com.dionisio.dionisiofoodapi.domain.model;
 
 import java.math.BigDecimal;
 import java.util.Objects;

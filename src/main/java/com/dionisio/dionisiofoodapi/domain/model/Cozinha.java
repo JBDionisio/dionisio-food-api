@@ -1,4 +1,4 @@
-package com.dionisio.dionisiofoodapi.model;
+package com.dionisio.dionisiofoodapi.domain.model;
 
 import java.util.Objects;
 
