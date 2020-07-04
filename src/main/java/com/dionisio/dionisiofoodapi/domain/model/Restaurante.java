@@ -5,9 +5,11 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Restaurante {
@@ -21,6 +23,8 @@ public class Restaurante {
     @Column(name = "taxa_frete")
     private BigDecimal taxaFrete;
 
+    @ManyToOne()
+    private Cozinha cozinha;
 
     public Long getId() {
         return this.id;
@@ -44,6 +48,14 @@ public class Restaurante {
 
     public void setTaxaFrete(BigDecimal taxaFrete) {
         this.taxaFrete = taxaFrete;
+    }
+
+    public Cozinha getCozinha() {
+        return this.cozinha;
+    }
+
+    public void setCozinha(Cozinha cozinha) {
+        this.cozinha = cozinha;
     }
 
     @Override

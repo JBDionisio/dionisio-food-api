@@ -12,12 +12,12 @@ import org.springframework.context.ApplicationContext;
 
 public class RestauranteMain {
     public static void main(String[] args) {
-        ApplicationContext appContext = new SpringApplicationBuilder(DionisioFoodAPI.class)
-        .web(WebApplicationType.NONE)
-        .run(args);
+        ApplicationContext appContext = new SpringApplicationBuilder(DionisioFoodAPI.class).web(WebApplicationType.NONE)
+                .run(args);
 
         RestauranteRepository rService = appContext.getBean(RestauranteRepository.class);
 
+        /* 
         Restaurante r1 = new Restaurante();
         r1.setNome("Habbibs");
         r1.setTaxaFrete(new BigDecimal(8.69));
@@ -33,10 +33,11 @@ public class RestauranteMain {
             System.out.println(c.getNome() + " : " + c.getTaxaFrete());
         }
 
-        rService.remover(r2);
-        
+        rService.remover(r2); 
+        */
+
         for (Restaurante c : rService.listar()) {
-            System.out.println(c.getNome() + " : " + c.getTaxaFrete());
+            System.out.printf("%s - %.2f: %s\n", c.getNome(), c.getTaxaFrete(), c.getCozinha().getNome());
         }
     }
 }
