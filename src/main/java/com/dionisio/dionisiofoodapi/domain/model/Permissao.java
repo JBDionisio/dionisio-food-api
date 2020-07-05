@@ -1,17 +1,14 @@
 package com.dionisio.dionisiofoodapi.domain.model;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
-public class Restaurante {
+public class Permissao {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +16,7 @@ public class Restaurante {
 
     private String nome;
 
-    @Column(name = "taxa_frete")
-    private BigDecimal taxaFrete;
-
-    @ManyToOne()
-    private Cozinha cozinha;
+    private String descricao;
 
     public Long getId() {
         return this.id;
@@ -41,31 +34,23 @@ public class Restaurante {
         this.nome = nome;
     }
 
-    public BigDecimal getTaxaFrete() {
-        return this.taxaFrete;
+    public String getDescricao() {
+        return this.descricao;
     }
 
-    public void setTaxaFrete(BigDecimal taxaFrete) {
-        this.taxaFrete = taxaFrete;
-    }
-
-    public Cozinha getCozinha() {
-        return this.cozinha;
-    }
-
-    public void setCozinha(Cozinha cozinha) {
-        this.cozinha = cozinha;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof Restaurante)) {
+        if (!(o instanceof Permissao)) {
             return false;
         }
-        Restaurante restaurante = (Restaurante) o;
-        return Objects.equals(id, restaurante.id);
+        Permissao permissao = (Permissao) o;
+        return Objects.equals(id, permissao.id);
     }
 
     @Override
